@@ -11,8 +11,14 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-  svg_flutter: ^0.0.1
+  flutter_localizations:
+        sdk: flutter
+  
+  # An SVG rendering and widget library for Flutter, which allows painting and displaying Scalable Vector Graphics 1.1 files.
+  flutter_svg: ^2.0.10+1
+  smooth_page_indicator: ^1.1.0
 
+  svg_flutter: any
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
 
@@ -50,3 +56,5 @@ flutter_assets:
   output_path: lib/core/utils/constants
   filename: app_images.dart
   field_prefix: null
+flutter_intl:
+  enabled: true
