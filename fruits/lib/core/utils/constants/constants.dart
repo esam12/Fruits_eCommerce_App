@@ -1,0 +1,1 @@
+const kIsOnBoardingViewSeen = 'isOnBoardingViewSeen';
