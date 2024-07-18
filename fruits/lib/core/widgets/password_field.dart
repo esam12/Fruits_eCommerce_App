@@ -25,7 +25,7 @@ class _PasswordFieldState extends State<PasswordField> {
             ? const Icon(
                 Icons.remove_red_eye_rounded,
                 color: AppColors.textFieldSuffixIconColor,
-              )
+              ) 
             : const Icon(
                 Icons.visibility_off_rounded,
                 color: AppColors.textFieldSuffixIconColor,
