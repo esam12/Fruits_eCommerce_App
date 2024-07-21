@@ -22,7 +22,6 @@ class SigninViewBody extends StatefulWidget {
 }
 
 class _SigninViewBodyState extends State<SigninViewBody> {
-  
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password;
@@ -70,9 +69,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      context
-                          .read<SigninCubit>()
-                          .signin(email, password);
+                      context.read<SigninCubit>().signin(email, password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -106,7 +103,9 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               SocialLoginButton(
                 icon: Assets.imagesFacebookIcon,
                 label: 'تسجيل دخول بواسطة فيسبوك',
-                onPressed: () {},
+                onPressed: () {
+                  context.read<SigninCubit>().signinWithFacebook();
+                },
               ),
             ],
           ),

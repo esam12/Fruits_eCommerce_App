@@ -25,7 +25,7 @@ class AuthRepoImpl extends AuthRepo {
       log(
         'Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}',
       );
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure('حدث خطأ ما , حاول مرة أخرى'));
     }
   }
 
@@ -42,10 +42,10 @@ class AuthRepoImpl extends AuthRepo {
       log(
         'Exception in AuthRepoImpl.signInWithEmailAndPassword: ${e.toString()}',
       );
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure('حدث خطأ ما , حاول مرة أخرى'));
     }
   }
-  
+
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     try {
@@ -57,7 +57,22 @@ class AuthRepoImpl extends AuthRepo {
       log(
         'Exception in AuthRepoImpl.signInWithGoogle: ${e.toString()}',
       );
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure('حدث خطأ ما , حاول مرة أخرى'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log(
+        'Exception in AuthRepoImpl.signInWithFacebook: ${e.toString()}',
+      );
+      return left(ServerFailure('حدث خطأ ما , حاول مرة أخرى'));
     }
   }
 }
