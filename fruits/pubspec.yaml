@@ -8,6 +8,10 @@ environment:
   sdk: '>=3.4.0 <4.0.0'
 
 dependencies:
+  build_runner: ^2.4.11
+  cached_network_image: ^3.3.1
+  firebase_storage: ^12.1.2
+  cloud_firestore: ^5.2.0
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   dots_indicator: ^3.0.0
@@ -23,12 +27,15 @@ dependencies:
   get_it: ^7.7.0
   google_sign_in: ^6.2.1
   iconsax: ^0.0.8
+  image_picker: ^1.1.2
   modal_progress_hud_nsn: ^0.5.1
+  persistent_bottom_nav_bar: ^6.2.1
   shared_preferences: ^2.2.3
+  shimmer: ^3.0.0
   smooth_page_indicator: ^1.1.0
   svg_flutter: any
   test: ^1.25.2
-  build_runner: ^2.4.11
+  timelines: ^0.1.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

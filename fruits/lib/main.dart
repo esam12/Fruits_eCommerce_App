@@ -6,8 +6,8 @@ import 'package:fruits/core/services/custom_bloc_observer.dart';
 import 'package:fruits/core/services/get_it_service.dart';
 import 'package:fruits/core/services/shared_preferences_singleton.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
-import 'package:fruits/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruits/features/splash/presentation/views/splash_view.dart';
 import 'package:fruits/firebase_options.dart';
 import 'generated/l10n.dart';
 

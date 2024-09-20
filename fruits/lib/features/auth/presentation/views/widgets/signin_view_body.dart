@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_images.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
-import 'package:fruits/core/utils/constants/constants.dart';
+import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/core/widgets/custom_text_form_field.dart';
 import 'package:fruits/core/widgets/password_field.dart';
@@ -29,7 +29,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.md),
       child: SingleChildScrollView(
         /// Login Form Body
         child: Form(

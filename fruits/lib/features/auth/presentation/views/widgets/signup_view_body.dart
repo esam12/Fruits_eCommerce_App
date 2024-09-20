@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
-import 'package:fruits/core/utils/constants/constants.dart';
+import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/utils/popups/loaders.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/core/widgets/custom_text_form_field.dart';
@@ -27,7 +27,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.md),
       child: SingleChildScrollView(
         child: Form(
           key: formKey,

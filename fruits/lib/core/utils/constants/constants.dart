@@ -1,2 +1,2 @@
 const kIsOnBoardingViewSeen = 'isOnBoardingViewSeen';
-const kHorizontalPadding = 16.0;
+const kUserData = 'userData';

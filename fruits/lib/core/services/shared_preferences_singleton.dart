@@ -14,4 +14,20 @@ class SharedPreferencesSingleton {
   static getBool(String key) {
     return _instance.getBool(key) ?? false;
   }
+
+  static setString(String key, String value) {
+    _instance.setString(key, value);
+  }
+
+  static getString(String key) {
+    return _instance.getString(key) ?? '';
+  }
+
+  static setStringList(String key, List<String> value) {
+    _instance.setStringList(key, value);
+  }
+
+  static getStringList(String key) {
+    return _instance.getStringList(key) ?? [];
+  }
 }
