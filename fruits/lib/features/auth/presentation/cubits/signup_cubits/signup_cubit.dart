@@ -5,7 +5,6 @@ import 'package:meta/meta.dart';
 
 part 'signup_state.dart';
 
-
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit(this.authRepo) : super(SignupInitial());
 
@@ -19,7 +18,9 @@ class SignupCubit extends Cubit<SignupState> {
 
     result.fold(
       (failure) => emit(SignupFailure(message: failure.message)),
-      (user) => emit(SignupSuccess(user: user)),
+      (user) => emit(
+        SignupSuccess(user: user),
+      ),
     );
   }
 }

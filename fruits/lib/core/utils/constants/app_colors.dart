@@ -16,10 +16,37 @@ class AppColors {
 
   /// Texts Colors
   static const Color greyTextColor = Color(0xFF949D9E);
+  static const Color lightGreenTextColor = Color(0xFF23AA49);
+  static const Color darkGreenTextColor = Color(0xFF3A8B33);
+  static const Color checkoutTextItemColor = Color(0xFFAAAAAA);
+
 
   /// Divider Colors
   static const Color dividerColor = Color(0xFFDCDEDE);
 
   /// Buttons Colors
   static const Color blackButtonColor = Color(0xFF0C0D0D);
+
+  /// Grid Layout Colors
+  static const Color gridColor = Color(0xFFF3F5F7);
+
+  /// Border colors
+  static const Color borderPrimary = Color(0xFFD9D9D9);
+  static const Color borderSecondary = Color(0xFFE6E6E6);
+  static const Color bordergreyForHeader = Color(0xFFCACECE);
+
+  /// Icons Border colors
+  static const Color iconBorderColor = Color(0xFFF1F1F5);
+
+  /// Icons Colors
+  static const Color iconColor = Color(0xFF979899);
+  static const Color iconStartColor = Color(0xFFFFC529);
+  static const Color visaBackgroundColor = Color(0xFF1434CB);
+
+  // Background colors
+  static const Color light = Color(0xFFF6F6F6);
+  static const Color dark = Color(0xFF272727);
+  static const Color primaryBackground = Color(0xFFF3F5FF);
+  static const Color notificationItemBackground = Color(0xFFEBF9F1);
+  static const Color checkoutItemBackground = Color(0xFFF2F3F3);
 }
