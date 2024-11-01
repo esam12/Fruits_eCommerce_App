@@ -8,7 +8,7 @@ import 'package:fruits/core/widgets/layouts/grid_layout.dart';
 import 'package:fruits/core/widgets/product_cards/product_card_vertical.dart';
 import 'package:fruits/core/widgets/section_heading.dart';
 import 'package:fruits/core/widgets/vertical_image_and_text.dart';
-import 'package:fruits/features/home/data/models/product_model.dart';
+import 'package:fruits/core/models/product_model.dart';
 import 'package:fruits/features/home/presentation/views/widgets/primery_header_container.dart';
 import 'package:fruits/features/our_products/presentation/views/widgets/pricing_bottom_sheet.dart';
 
@@ -123,16 +123,16 @@ class ProductsViewBody extends StatelessWidget {
               showActionButton: true,
             ),
             const SizedBox(height: 8.0),
-            TGridLayout(
-              padding: EdgeInsets.zero,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return  ProductCardVertical(
-                product: ProductModel.empty(),
+            // TGridLayout(
+            //   padding: EdgeInsets.zero,
+            //   itemCount: 4,
+            //   itemBuilder: (context, index) {
+            //     return  ProductCardVertical(
+            //     product: ProductModel.empty(),
 
-                );
-              },
-            )
+            //     );
+            //   },
+            // )
           ],
         ),
       ),

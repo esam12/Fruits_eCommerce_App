@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits/core/models/product_model.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/containers/circular_icon.dart';
 import 'package:fruits/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:fruits/features/home/domain/entities/home_entity.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AddAndRemoveToCart extends StatelessWidget {
@@ -17,7 +17,7 @@ class AddAndRemoveToCart extends StatelessWidget {
   });
 
   final double? width, height, size;
-  final ProductEntity product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

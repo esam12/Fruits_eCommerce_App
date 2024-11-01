@@ -13,7 +13,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    excuteNav();
+    excuteNav(context);
     super.initState();
   }
 
@@ -38,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     );
   }
 
-  void excuteNav() async {
+  void excuteNav(context) async {
     await Future.delayed(
       const Duration(seconds: 2),
       () {

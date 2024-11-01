@@ -34,6 +34,10 @@ class Assets {
   /// assets/images/google_icon.svg
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
 
+  /// Assets for imagesHomeBannerBG
+  /// assets/images/home_banner_BG.png
+  static const String imagesHomeBannerBG = "assets/images/home_banner_BG.png";
+
   /// Assets for imagesIconLogo
   /// assets/images/icon_logo.png
   static const String imagesIconLogo = "assets/images/icon_logo.png";
@@ -137,6 +141,10 @@ class Assets {
   /// Assets for imagesSalePrecent
   /// assets/images/sale_precent.png
   static const String imagesSalePrecent = "assets/images/sale_precent.png";
+
+  /// Assets for imagesSearchIcon
+  /// assets/images/search_icon.svg
+  static const String imagesSearchIcon = "assets/images/search_icon.svg";
 
   /// Assets for imagesSearchingNotFound
   /// assets/images/searching_not_found.png

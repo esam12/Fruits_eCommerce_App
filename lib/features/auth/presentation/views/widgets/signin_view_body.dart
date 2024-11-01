@@ -7,7 +7,7 @@ import 'package:fruits/core/utils/constants/app_images.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/core/widgets/custom_text_form_field.dart';
+import 'package:fruits/core/widgets/text_form/custom_text_form_field.dart';
 import 'package:fruits/core/widgets/password_field.dart';
 import 'package:fruits/features/auth/presentation/cubits/signin_cubits/signin_cubit.dart';
 import 'package:fruits/features/auth/presentation/views/widgets/dont_have_an_account.dart';

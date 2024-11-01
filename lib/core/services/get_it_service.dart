@@ -1,10 +1,10 @@
+import 'package:fruits/core/repos/product_repo.dart';
+import 'package:fruits/core/repos/product_repo_impl.dart';
 import 'package:fruits/core/services/data_service.dart';
 import 'package:fruits/core/services/firebase_auth_service.dart';
 import 'package:fruits/core/services/firestore_service.dart';
 import 'package:fruits/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:fruits/features/auth/domain/repos/auth_repo.dart';
-import 'package:fruits/features/home/data/repos/home_repo_impl.dart';
-import 'package:fruits/features/home/domain/repos/home_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -21,9 +21,11 @@ void setUpGetIt() {
     ),
   );
 
-  getIt.registerSingleton<HomeRepo>(
-    HomeRepoImpl(
+  getIt.registerSingleton<ProductRepo>(
+    ProductRepoImpl(
       fireStoreService: getIt<FireStoreService>(),
     ),
   );
+
+
 }

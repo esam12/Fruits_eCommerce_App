@@ -20,10 +20,12 @@ class TGridLayout extends StatelessWidget {
     return GridView.builder(
       padding: padding,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: Sizes.gridViewSpacing,
-          crossAxisSpacing: Sizes.gridViewSpacing,
-          mainAxisExtent: mainAxisExtent),
+        crossAxisCount: 2,
+        mainAxisSpacing: Sizes.gridViewSpacing,
+        crossAxisSpacing: Sizes.gridViewSpacing,
+        mainAxisExtent: mainAxisExtent,
+        childAspectRatio: 163 / 243,
+      ),
       itemCount: itemCount,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/cart/add_remove_to_cart.dart';
@@ -7,7 +8,6 @@ import 'package:fruits/core/widgets/containers/image_rounded.dart';
 import 'package:fruits/core/widgets/containers/rounded_container.dart';
 import 'package:fruits/core/widgets/curved_edges/curved_edges_widget.dart';
 import 'package:fruits/core/widgets/layouts/grid_layout.dart';
-import 'package:fruits/features/home/domain/entities/home_entity.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProductDetailViewBody extends StatelessWidget {
@@ -30,7 +30,7 @@ class ProductDetailViewBody extends StatelessWidget {
                 child: SizedBox(
                   width: 220,
                   child: TRoundedImage(
-                    imageUrl: product!.productImage,
+                    imageUrl: product!.imageUrl ?? '',
                     applyImageRadius: true,
                     isNetworkImage: true,
                   ),
@@ -48,18 +48,18 @@ class ProductDetailViewBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      product!.productName,
+                      product!.name,
                       style: TextStyles.bold16,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      ' ${product!.productPrice} جنية / الكيلو',
+                      ' ${product!.price} جنية / الكيلو',
                       style: TextStyles.bold13
                           .copyWith(color: AppColors.secondaryColor),
                     ),
                   ],
                 ),
-                AddAndRemoveToCart(product: product!),
+              //  AddAndRemoveToCart(product: product ?? []),
               ],
             ),
           ),
@@ -74,11 +74,11 @@ class ProductDetailViewBody extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                    text: product!.productRating.toString(),
+                    text: product!.averageRating.toString(),
                     style: TextStyles.semiBold13,
                     children: [
                       TextSpan(
-                        text: '   (${product!.productRatingCount}+)',
+                        text: '   (${product!.ratingCount}+)',
                         style: TextStyles.semiBold13.copyWith(
                           color: const Color(0xFF9796A1),
                         ),
@@ -100,7 +100,7 @@ class ProductDetailViewBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
-              product!.productDescription.toString(),
+              product!.description.toString(),
               style: TextStyles.regular13.copyWith(color: AppColors.iconColor),
             ),
           ),

@@ -3,7 +3,7 @@ import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/cart/add_remove_to_cart.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/features/home/data/models/product_model.dart';
+import 'package:fruits/core/models/product_model.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});

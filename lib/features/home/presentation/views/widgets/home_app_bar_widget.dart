@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruits/core/helper/functions/get_user.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/appbar/custom_app_bar.dart';
-import 'package:fruits/features/home/presentation/views/widgets/user_name_bloc_consumer.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
   const HomeAppBarWidget({
@@ -27,7 +27,10 @@ class HomeAppBarWidget extends StatelessWidget {
                     .copyWith(color: AppColors.greyTextColor),
               ),
               const SizedBox(height: 5),
-              const UserNameBlocConsumer(),
+              Text(
+                getUser().name,
+                style: TextStyles.bold16,
+              ),
             ],
           ),
         ],

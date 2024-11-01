@@ -7,7 +7,7 @@ import 'package:fruits/core/errors/exception.dart';
 import 'package:fruits/core/services/shared_preferences_singleton.dart';
 import 'package:fruits/core/utils/constants/constants.dart';
 import 'package:fruits/features/auth/presentation/views/signin_view.dart';
-import 'package:fruits/features/home/presentation/views/home_view.dart';
+import 'package:fruits/features/home/presentation/views/main_view.dart';
 import 'package:fruits/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -27,13 +27,16 @@ class FirebaseAuthService {
   screenRedirect(context) async {
     bool isOnBoardingViewSeen =
         SharedPreferencesSingleton.getBool(kIsOnBoardingViewSeen);
-    if (_auth.currentUser != null) {
-      await SharedPreferencesSingleton.setString('uid', _auth.currentUser!.uid);
-      Navigator.pushReplacementNamed(context, HomeView.routeName);
+
+    if (isOnBoardingViewSeen) {
+      var isLoggedIn = FirebaseAuthService().isLoggedIn();
+      if (isLoggedIn) {
+        Navigator.pushReplacementNamed(context, MainView.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, SigninView.routeName);
+      }
     } else {
-      isOnBoardingViewSeen
-          ? Navigator.pushReplacementNamed(context, SigninView.routeName)
-          : Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
     }
   }
 
@@ -116,5 +119,9 @@ class FirebaseAuthService {
 
     // Once signed in, return the UserCredential
     return (await _auth.signInWithCredential(facebookAuthCredential)).user!;
+  }
+
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
   }
 }

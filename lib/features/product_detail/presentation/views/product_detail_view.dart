@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/widgets/appbar/custom_app_bar.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/features/home/domain/entities/home_entity.dart';
 import 'package:fruits/features/product_detail/presentation/views/widgets/product_detail_view_body.dart';
 
 class ProductDetailView extends StatelessWidget {

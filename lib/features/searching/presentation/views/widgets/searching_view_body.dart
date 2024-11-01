@@ -3,7 +3,7 @@ import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/layouts/grid_layout.dart';
 import 'package:fruits/core/widgets/product_cards/product_card_vertical.dart';
-import 'package:fruits/features/home/data/models/product_model.dart';
+import 'package:fruits/core/models/product_model.dart';
 
 class SearchingViewBody extends StatelessWidget {
   const SearchingViewBody({super.key});
@@ -49,14 +49,14 @@ class SearchingLoadData extends StatelessWidget {
         const SizedBox(
           height: 16.0,
         ),
-        TGridLayout(
-          itemCount: 1,
-          itemBuilder: (context, index) {
-            return ProductCardVertical(
-              product: ProductModel.empty(),
-            );
-          },
-        )
+        // TGridLayout(
+        //   itemCount: 1,
+        //   itemBuilder: (context, index) {
+        //     return ProductCardVertical(
+        //       product: ProductModel.empty(),
+        //     );
+        //   },
+        // )
       ],
     );
   }
