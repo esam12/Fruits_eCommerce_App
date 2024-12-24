@@ -25,6 +25,7 @@ class BestSellingProductsBlocBuilder extends StatelessWidget {
           );
         }
       },
+      
     );
   }
 }
