@@ -9,11 +9,13 @@ class BestSellingProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TGridLayout(
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        return ProductCardVertical(product: products[index]);
-      },
+    return SliverToBoxAdapter(
+      child: TGridLayout(
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return ProductCardVertical(product: products[index]);
+        },
+      ),
     );
   }
 }

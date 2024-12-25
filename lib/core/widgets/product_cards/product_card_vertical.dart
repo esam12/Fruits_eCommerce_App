@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
-import 'package:fruits/core/utils/constants/app_images.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/containers/image_rounded.dart';
