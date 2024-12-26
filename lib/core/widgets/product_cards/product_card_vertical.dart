@@ -33,6 +33,7 @@ class ProductCardVertical extends StatelessWidget {
                     imageUrl: product.imageUrl ?? '',
                     applyImageRadius: true,
                     isNetworkImage: true,
+                    
                   ),
                 ),
 

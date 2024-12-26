@@ -17,15 +17,13 @@ class BestSellingProductsBlocBuilder extends StatelessWidget {
             products: state.products,
           );
         } else if (state is ProductsFailure) {
-          return SliverToBoxAdapter(
-              child: CustomErrorWidget(text: state.message));
+          return CustomErrorWidget(text: state.message);
         } else {
           return BestSellingProducts(
             products: getDummyProducts(),
           );
         }
       },
-      
     );
   }
 }

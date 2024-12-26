@@ -1,4 +1,5 @@
 import 'package:fruits/core/entities/product_entity.dart';
+import 'package:fruits/core/helper/functions/get_avg_rating.dart';
 import 'package:fruits/core/models/review_model.dart';
 
 class ProductModel {
@@ -6,7 +7,9 @@ class ProductModel {
   final num price;
   final String code;
   final String description;
+
   final bool isFeatured;
+  final int sellingCount;
   String? imageUrl;
   final int expirationsMonths;
   final bool isOrganic;
@@ -14,7 +17,6 @@ class ProductModel {
   final int unitAmount;
   final num averageRating;
   final num ratingCount;
-  final int sellingCount;
   final List<ReviewModel> reviews;
 
   ProductModel({
@@ -31,7 +33,7 @@ class ProductModel {
     this.averageRating = 0,
     this.ratingCount = 0,
     this.sellingCount = 0,
-    this.reviews = const [],
+    required this.reviews,
   });
 
   // Empty constructor
@@ -81,10 +83,14 @@ class ProductModel {
       isOrganic: json['isOrganic'],
       numberOfCalories: json['numberOfCalories'],
       unitAmount: json['unitAmount'],
-      reviews: List<ReviewModel>.from(
-          json['reviews'].map((x) => ReviewModel.fromJson(x))),
-      averageRating: json['averageRating'],
-      ratingCount: json['ratingCount'],
+      reviews: json['reviews'] != null
+          ? List<ReviewModel>.from(
+              json['reviews'].map((e) => ReviewModel.fromJson(e)))
+          : [],
+      averageRating: getAvgRating(json['reviews'] != null
+          ? List<ReviewModel>.from(
+              json['reviews'].map((e) => ReviewModel.fromJson(e)))
+          : []),
       sellingCount: json['sellingCount'],
     );
   }

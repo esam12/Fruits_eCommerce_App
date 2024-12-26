@@ -13,7 +13,8 @@ ProductEntity getDummyProduct() {
     isOrganic: true,
     isFeatured: true,
     imageUrl: null,
-
+    averageRating: 4.5,
+    ratingCount: 10,
   );
 }
 
