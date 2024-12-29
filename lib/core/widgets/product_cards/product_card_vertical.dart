@@ -29,12 +29,14 @@ class ProductCardVertical extends StatelessWidget {
                 /// Thumbanil Image
 
                 Center(
-                  child: TRoundedImage(
-                    imageUrl: product.imageUrl ?? '',
-                    applyImageRadius: true,
-                    isNetworkImage: true,
-                    
-                  ),
+                  child:
+                      product.imageUrl != null && product.imageUrl!.isNotEmpty
+                          ? TRoundedImage(
+                              imageUrl: product.imageUrl ?? '',
+                              applyImageRadius: true,
+                              isNetworkImage: true,
+                            )
+                          : const Icon(Icons.error),
                 ),
 
                 /// Wishlist Button
