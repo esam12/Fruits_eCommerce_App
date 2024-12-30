@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits/features/home/presentation/views/products_view.dart';
 import 'package:fruits/features/home/presentation/views/widgets/custom_bottom_navigation_bar.dart';
 import 'package:fruits/features/home/presentation/views/widgets/home_view.dart';
 
@@ -15,11 +16,19 @@ class _MainViewState extends State<MainView> {
   int currentViewIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(),
+    return  Scaffold(
+      bottomNavigationBar: const CustomBottomNavigationBar(),
       body: SafeArea(
-        child: HomeView(),
+        child: getCurrentView(),
       ),
     );
+  }
+
+  Widget getCurrentView() {
+    return [
+      const HomeView(),
+      const ProductsView(),
+
+    ][currentViewIndex];
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/features/our_products/presentation/views/widgets/products_view_body.dart';
 
-class ProductsView extends StatelessWidget {
-  const ProductsView({super.key});
+class OurProductsView extends StatelessWidget {
+  const OurProductsView({super.key});
 
   static const String routeName = 'ourProductsView';
 

@@ -43,6 +43,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const MainView(),
       );
+    
+    
 
     /// Best Seller Screen
     case BestSellingView.routeName:
@@ -53,8 +55,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SearchingView());
 
     /// Products Screen
-    case ProductsView.routeName:
-      return MaterialPageRoute(builder: (context) => const ProductsView());
+    case OurProductsView.routeName:
+      return MaterialPageRoute(builder: (context) => const OurProductsView());
 
     /// Notification Screen
     case NotificationView.routeName:
