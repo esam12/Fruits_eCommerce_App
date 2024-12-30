@@ -16,8 +16,13 @@ class _MainViewState extends State<MainView> {
   int currentViewIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+    return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onItemTapped: (index) {
+          currentViewIndex = index;
+          setState(() {});
+        },
+      ),
       body: SafeArea(
         child: getCurrentView(),
       ),
@@ -28,7 +33,6 @@ class _MainViewState extends State<MainView> {
     return [
       const HomeView(),
       const ProductsView(),
-
     ][currentViewIndex];
   }
 }
