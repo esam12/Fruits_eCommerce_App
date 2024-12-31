@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/text_form/search_text_field.dart';
-import 'package:fruits/features/home/presentation/views/widgets/best_selling_products_bloc_builder.dart';
+import 'package:fruits/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:fruits/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruits/features/home/presentation/views/widgets/products_view_header.dart';
 
@@ -23,36 +23,39 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: Sizes.md,
               ),
 
               /// Header Section
-              CustomHomeAppBar(),
+              const CustomHomeAppBar(),
 
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: Sizes.md),
+                padding: const EdgeInsets.symmetric(horizontal: Sizes.md),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: Sizes.md,
                     ),
-                    SearchTextField(),
+                    const SearchTextField(),
 
-                    SizedBox(height: Sizes.md),
+                    const SizedBox(height: Sizes.md),
 
                     /// Best Seller
-                    ProductsViewHeader(productsLength: 2),
+                    ProductsViewHeader(
+                      productsLength:
+                          context.read<ProductsCubit>().productsLength,
+                    ),
 
-                    SizedBox(height: Sizes.md),
+                    const SizedBox(height: Sizes.md),
 
                     /// Best Seller Products
-                    BestSellingProductsBlocBuilder()
+                    const ProductsGridViewBlocBuilder()
                   ],
                 ),
               ),

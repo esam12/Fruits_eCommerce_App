@@ -6,7 +6,7 @@ import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/section_heading.dart';
 import 'package:fruits/core/widgets/text_form/search_text_field.dart';
 import 'package:fruits/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import 'package:fruits/features/home/presentation/views/widgets/best_selling_products_bloc_builder.dart';
+import 'package:fruits/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:fruits/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruits/features/home/presentation/views/widgets/home_banner_list_item.dart';
 
@@ -62,7 +62,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ),
 
                     /// Best Seller Products
-                    const BestSellingProductsBlocBuilder()
+                    const ProductsGridViewBlocBuilder()
                   ],
                 ),
               ),

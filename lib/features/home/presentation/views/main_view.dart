@@ -24,15 +24,14 @@ class _MainViewState extends State<MainView> {
         },
       ),
       body: SafeArea(
-        child: getCurrentView(),
+        child: IndexedStack(
+          index: currentViewIndex,
+          children: const [
+            HomeView(),
+            ProductsView(),
+          ],
+        ),
       ),
     );
-  }
-
-  Widget getCurrentView() {
-    return [
-      const HomeView(),
-      const ProductsView(),
-    ][currentViewIndex];
   }
 }

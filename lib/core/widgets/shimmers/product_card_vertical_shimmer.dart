@@ -22,9 +22,9 @@ class ProductCardVerticalShimmer extends StatelessWidget {
             SizedBox(height: Sizes.spaceBtwItems),
 
             // Title
-            TShimmerEffect(width: 160, height: 15),
+            TShimmerEffect(width: 110, height: 12),
             SizedBox(height: Sizes.spaceBtwItems / 2),
-            TShimmerEffect(width: 110, height: 15)
+            TShimmerEffect(width: 150, height: 12)
           ],
         ),
       ),
