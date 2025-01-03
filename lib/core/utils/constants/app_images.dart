@@ -162,6 +162,10 @@ class Assets {
   /// assets/images/success_image.png
   static const String imagesSuccessImage = "assets/images/success_image.png";
 
+  /// Assets for imagesTrash
+  /// assets/images/trash.svg
+  static const String imagesTrash = "assets/images/trash.svg";
+
   /// Assets for imagesVector
   /// assets/images/Vector.svg
   static const String imagesVector = "assets/images/Vector.svg";

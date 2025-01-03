@@ -48,5 +48,6 @@ class AppColors {
   static const Color dark = Color(0xFF272727);
   static const Color primaryBackground = Color(0xFFF3F5FF);
   static const Color notificationItemBackground = Color(0xFFEBF9F1);
+  
   static const Color checkoutItemBackground = Color(0xFFF2F3F3);
 }
