@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits/features/auth/presentation/views/signup_view.dart';
 import 'package:fruits/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import 'package:fruits/features/cart/data/repos/cart_repo_impl.dart';
-import 'package:fruits/features/cart/presentation/cubit/cart_cubit.dart';
-import 'package:fruits/features/cart/presentation/views/cart_view.dart';
 import 'package:fruits/features/checkout/presentation/views/checkout_address_view.dart';
 import 'package:fruits/features/checkout/presentation/views/checkout_review_view.dart';
 import 'package:fruits/features/checkout/presentation/views/checkout_view.dart';
@@ -70,14 +66,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     //           ));
 
     /// Cart Screen
-    case CartView.routeName:
-      return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-                create: (context) => CartCubit(
-                  cartRepo: CartRepoImpl(),
-                ),
-                child: const CartView(),
-              ));
+
 
     /// Checkout Screen
     case CheckoutView.routeName:

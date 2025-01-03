@@ -5,7 +5,9 @@ import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/appbar/notification_widget.dart';
 
 AppBar buildAppBar(context,
-    {required String title, bool showBackButton = true}) {
+    {required String title,
+    bool showBackButton = true,
+    bool showNotification = true}) {
   return AppBar(
     centerTitle: true,
     backgroundColor: AppColors.whiteColor,
@@ -20,10 +22,13 @@ AppBar buildAppBar(context,
       textAlign: TextAlign.center,
       style: TextStyles.bold19,
     ),
-    actions: const [
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: Sizes.md),
-        child: NotificationWidget(),
+    actions: [
+      Visibility(
+        visible: showNotification,
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: Sizes.md),
+          child: NotificationWidget(),
+        ),
       ),
     ],
   );
