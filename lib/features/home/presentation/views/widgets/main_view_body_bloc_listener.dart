@@ -20,6 +20,11 @@ class MainViewBodyBlocListener extends StatelessWidget {
           FLoaders.successSnackBar(
               context: context, title: 'تم اضافة المنتج بنجاح');
         }
+
+        if (state is CartItemRemoved) {
+          FLoaders.warningSnackBar(
+              context: context, title: 'تم حذف المنتج بنجاح');
+        }
       },
       child: MainViewBody(currentViewIndex: currentViewIndex),
     );

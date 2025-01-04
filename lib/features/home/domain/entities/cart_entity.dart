@@ -10,18 +10,32 @@ class CartEntity {
     cartItems.add(cartItemEntity);
   }
 
+  /// Remove item from cart
+  removeCartItem(CartItemEntity cartItemEntity) {
+    cartItems.remove(cartItemEntity);
+  }
+
   /// Check if item is already in cart
   bool isItemInCart(ProductEntity product) {
-    if (cartItems.contains(product)) {
-      return true;
-    } else {
-      return false;
+    for (var item in cartItems) {
+      if (item.productEntity == product) {
+        return true;
+      }
     }
+    return false;
+    // if (cartItems.contains(product)) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   /// Calculate total price
   num calculateTotalPrice() {
-    return cartItems.fold(0, (previousValue, element) => previousValue + element.calculateTotalPrice());
+    return cartItems.fold(
+        0,
+        (previousValue, element) =>
+            previousValue + element.calculateTotalPrice());
   }
 
   /// Get item from cart

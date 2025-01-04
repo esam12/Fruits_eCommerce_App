@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruits/features/home/presentation/cubit/cart_cubit.dart';
 
 class CartItemActionButtons extends StatelessWidget {
   const CartItemActionButtons({
@@ -19,15 +21,14 @@ class CartItemActionButtons extends StatelessWidget {
           icon: Icons.add,
           color: AppColors.primaryColor,
           onPressed: () {
-            //  cartItemEntity.increasQuantity();
-            // context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            cartItemEntity.incrementCount();
+            context.read<CartCubit>().cartItemUpdated(cartItemEntity);
           },
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            '2',
-            //cartItemEntity.quanitty.toString(),
+            cartItemEntity.count.toString(),
             textAlign: TextAlign.center,
             style: TextStyles.bold16,
           ),
@@ -37,8 +38,11 @@ class CartItemActionButtons extends StatelessWidget {
           icon: Icons.remove,
           color: const Color(0xFFF3F5F7),
           onPressed: () {
-            // cartItemEntity.decreasQuantity();
-            // context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            cartItemEntity.decrementCount();
+            context.read<CartCubit>().cartItemUpdated(cartItemEntity);
+            if (cartItemEntity.count == 0) {
+              context.read<CartCubit>().removeCartItem(cartItemEntity);
+            }
           },
         )
       ],

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_images.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/containers/image_rounded.dart';
 import 'package:fruits/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruits/features/home/presentation/cubit/cart_cubit.dart';
 import 'package:fruits/features/home/presentation/views/widgets/cart_item_action_buttons.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
@@ -45,7 +47,9 @@ class CartItem extends StatelessWidget {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        context.read<CartCubit>().removeCartItem(cartItem);
+                      },
                       child: SvgPicture.asset(
                         Assets.imagesTrash,
                       ),
@@ -61,9 +65,9 @@ class CartItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                     CartItemActionButtons(
-                         cartItemEntity: cartItem,
-                        ),
+                    CartItemActionButtons(
+                      cartItemEntity: cartItem,
+                    ),
                     const Spacer(),
                     Text(
                       '${cartItem.calculateTotalPrice()} جنيه ',
