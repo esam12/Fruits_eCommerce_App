@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
+import 'package:fruits/features/home/domain/entities/cart_item_entity.dart';
 
 class CartItemActionButtons extends StatelessWidget {
   const CartItemActionButtons({
     super.key,
-    //required this.cartItemEntity,
+    required this.cartItemEntity,
   });
 
-  //final CartItemEntity cartItemEntity;
+  final CartItemEntity cartItemEntity;
   @override
   Widget build(BuildContext context) {
     return Row(

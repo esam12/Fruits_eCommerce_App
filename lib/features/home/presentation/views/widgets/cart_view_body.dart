@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
+import 'package:fruits/features/home/presentation/cubit/cart_cubit.dart';
 import 'package:fruits/features/home/presentation/views/widgets/cart_header.dart';
 import 'package:fruits/features/home/presentation/views/widgets/cart_items_list.dart';
 
@@ -37,8 +39,8 @@ class CartViewBody extends StatelessWidget {
         ),
 
         // Cart Items
-        const CartItemsList(
-          cartItems: [],
+        CartItemsList(
+          cartItems: context.read<CartCubit>().cartEntity.cartItems,
         ),
       ],
     );

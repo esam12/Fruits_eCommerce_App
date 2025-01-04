@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fruits/core/utils/constants/app_colors.dart'; 
-import 'package:iconsax/iconsax.dart'; 
+import 'package:fruits/core/utils/constants/app_colors.dart';
+import 'package:iconsax/iconsax.dart';
 
 class FLoaders {
-
-   static hideSnackBar(BuildContext context) =>
+  static hideSnackBar(BuildContext context) =>
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-  static customToast(BuildContext context,{required message}) {
+  static customToast(BuildContext context, {required message}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         elevation: 0,
@@ -18,7 +17,7 @@ class FLoaders {
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color:  Colors.grey.withOpacity(0.9),
+            color: Colors.grey.withOpacity(0.9),
           ),
           child: Center(
             child: Text(
@@ -32,7 +31,7 @@ class FLoaders {
   }
 
   /// Shows a success snackbar.
-  /// 
+  ///
   /// [context] The BuildContext to access the ScaffoldMessenger.
   /// [title] The main message to display.
   /// [message] Optional additional message (shown below the title).
@@ -44,7 +43,7 @@ class FLoaders {
     required String title,
     String message = '',
     int duration = 3,
-    IconData icon = Iconsax.check,
+    IconData icon = Iconsax.copy_success,
     Color? backgroundColor,
   }) {
     _showSnackBar(
@@ -93,7 +92,6 @@ class FLoaders {
     );
   }
 
-
   /// Internal helper method to display a SnackBar with consistent styling.
   static void _showSnackBar({
     required BuildContext context,
@@ -113,7 +111,8 @@ class FLoaders {
               children: [
                 Icon(icon, color: Colors.white),
                 const SizedBox(width: 8),
-                Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text(title,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             if (message.isNotEmpty) ...[

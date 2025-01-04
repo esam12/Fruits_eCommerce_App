@@ -24,7 +24,10 @@ class CartItem extends StatelessWidget {
             width: 73,
             height: 92,
             decoration: const BoxDecoration(color: Color(0xFFF3F5F7)),
-            child: TRoundedImage(imageUrl: cartItem.productEntity.imageUrl!),
+            child: TRoundedImage(
+              imageUrl: cartItem.productEntity.imageUrl!,
+              isNetworkImage: true,
+            ),
           ),
           const SizedBox(
             width: 17,
@@ -58,8 +61,8 @@ class CartItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const CartItemActionButtons(
-                        // cartItemEntity: carItemEntity,
+                     CartItemActionButtons(
+                         cartItemEntity: cartItem,
                         ),
                     const Spacer(),
                     Text(

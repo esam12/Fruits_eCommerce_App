@@ -18,4 +18,9 @@ class CartEntity {
       return false;
     }
   }
+
+  /// Get item from cart
+  CartItemEntity getItemFromCart(ProductEntity product) {
+    return cartItems.firstWhere((element) => element.productEntity == product);
+  }
 }
