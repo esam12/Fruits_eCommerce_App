@@ -19,6 +19,11 @@ class CartEntity {
     }
   }
 
+  /// Calculate total price
+  num calculateTotalPrice() {
+    return cartItems.fold(0, (previousValue, element) => previousValue + element.calculateTotalPrice());
+  }
+
   /// Get item from cart
   CartItemEntity getItemFromCart(ProductEntity product) {
     return cartItems.firstWhere((element) => element.productEntity == product);
