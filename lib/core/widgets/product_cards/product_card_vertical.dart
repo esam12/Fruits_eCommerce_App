@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/containers/image_rounded.dart';
 import 'package:fruits/core/widgets/containers/rounded_container.dart';
+import 'package:fruits/features/home/presentation/cubit/cart_cubit.dart';
 
 class ProductCardVertical extends StatelessWidget {
   const ProductCardVertical({super.key, required this.product});
@@ -88,17 +90,20 @@ class ProductCardVertical extends StatelessWidget {
                 ),
 
                 /// Add To Cart Button Circle
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: AppColors.primaryColor,
-                  ),
-                  child: const SizedBox(
-                    width: Sizes.iconLg * 1.2,
-                    height: Sizes.iconLg * 1.2,
-                    child: Icon(
-                      Icons.add,
-                      color: AppColors.whiteColor,
+                GestureDetector(
+                  onTap: () => context.read<CartCubit>().addCartItem(product),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: AppColors.primaryColor,
+                    ),
+                    child: const SizedBox(
+                      width: Sizes.iconLg * 1.2,
+                      height: Sizes.iconLg * 1.2,
+                      child: Icon(
+                        Icons.add,
+                        color: AppColors.whiteColor,
+                      ),
                     ),
                   ),
                 ),
