@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/features/checkout/presentation/views/widgets/checkout_header_item.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_listtile_item.dart';
+import 'package:fruits/features/checkout/presentation/views/widgets/checkout_steps.dart';
 
 class CheckoutViewBody extends StatelessWidget {
   const CheckoutViewBody({super.key});
@@ -14,33 +14,7 @@ class CheckoutViewBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 16.0),
-            const Row(
-              children: [
-                CheckoutHeaderItem(
-                  title: 'الشحن',
-                  isSelected: true,
-                  no: '1',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'العنوان',
-                  isSelected: false,
-                  no: '2',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'الدفع',
-                  isSelected: false,
-                  no: '3',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'المراجعه',
-                  isSelected: false,
-                  no: '4',
-                ),
-              ],
-            ),
+            const CheckoutSteps(),
             const SizedBox(height: 32),
             const CheckoutListTileItem(
               title: 'الدفع عند الاستلام',
