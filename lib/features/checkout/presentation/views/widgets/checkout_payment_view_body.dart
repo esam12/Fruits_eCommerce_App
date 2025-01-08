@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/core/widgets/text_form/custom_text_form_field.dart';
-import 'package:fruits/features/checkout/presentation/views/widgets/checkout_header_item.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_payment_item.dart';
 
 class CheckoutPaymentViewBody extends StatelessWidget {
@@ -17,18 +16,7 @@ class CheckoutPaymentViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 24),
-            const Row(
-              children: [
-                CheckoutHeaderItem(title: 'الشحن', isSelected: true, no: '1'),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(title: 'العنوان', isSelected: true, no: '2'),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(title: 'الدفع', isSelected: true, no: '3'),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                    title: 'المراجعه', isSelected: false, no: '4'),
-              ],
-            ),
+         
             const SizedBox(height: 24),
             const Text('أختار طريقه الدفع المناسبه :',
                 style: TextStyles.bold13),

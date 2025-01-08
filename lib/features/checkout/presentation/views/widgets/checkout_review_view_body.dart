@@ -4,7 +4,6 @@ import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/containers/rounded_container.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/core/widgets/row/tow_text_and_space_between.dart';
-import 'package:fruits/features/checkout/presentation/views/widgets/checkout_header_item.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_payment_item.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -20,33 +19,6 @@ class CheckoutReviewViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 16.0),
-            const Row(
-              children: [
-                CheckoutHeaderItem(
-                  title: 'الشحن',
-                  isSelected: true,
-                  no: '1',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'العنوان',
-                  isSelected: true,
-                  no: '2',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'الدفع',
-                  isSelected: true,
-                  no: '3',
-                ),
-                SizedBox(width: 24),
-                CheckoutHeaderItem(
-                  title: 'المراجعه',
-                  isSelected: true,
-                  no: '4',
-                ),
-              ],
-            ),
             const SizedBox(height: 24.0),
             const Text('ملخص الطلب', style: TextStyles.bold13),
             const SizedBox(height: 8.0),

@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/features/checkout/presentation/views/widgets/checkout_listtile_item.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_steps.dart';
+import 'package:fruits/features/checkout/presentation/views/widgets/checkout_steps_view_page.dart';
 
-class CheckoutViewBody extends StatelessWidget {
+class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
 
   @override
+  State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
+}
+
+class _CheckoutViewBodyState extends State<CheckoutViewBody> {
+  late PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 16.0),
-            const CheckoutSteps(),
-            const SizedBox(height: 32),
-            const CheckoutListTileItem(
-              title: 'الدفع عند الاستلام',
-              suTitle: 'التسليم من المكان',
-              totalPrice: '40 جنيه',
-              isSelected: false,
-            ),
-            const SizedBox(height: 8.0),
-            const CheckoutListTileItem(
-              title: 'اشتري الان وادفع لاحقا',
-              suTitle: 'يرجى تحديد طريقة الدفع',
-              totalPrice: 'مجاني',
-              isSelected: true,
-            ),
-            const SizedBox(height: 100),
-            CustomButton(onPressed: () {}, text: 'التالي')
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: [
+          const SizedBox(height: 16.0),
+          const CheckoutSteps(),
+          const SizedBox(height: 32),
+          CheckoutStepsViewPage(pageController: pageController),
+          CustomButton(onPressed: () {}, text: 'التالي'),
+          const SizedBox(height: 32),
+        ],
       ),
     );
   }
+
+
 }
