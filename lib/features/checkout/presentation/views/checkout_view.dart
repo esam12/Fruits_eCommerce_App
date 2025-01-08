@@ -11,7 +11,7 @@ class CheckoutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const CheckoutViewBody(),
-      appBar: buildAppBar(context, title: 'الشحن'),
+      appBar: buildAppBar(context, title: 'الشحن', showNotification: false),
     );
   }
 }
