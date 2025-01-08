@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits/features/checkout/presentation/views/widgets/active_step_item.dart';
+import 'package:fruits/features/checkout/presentation/views/widgets/step_item.dart';
 
 class CheckoutSteps extends StatelessWidget {
   const CheckoutSteps({super.key});
@@ -9,8 +9,10 @@ class CheckoutSteps extends StatelessWidget {
     return Row(
       children: List.generate(getSteps().length, (index) {
         return Expanded(
-          child: ActiveStepItem(
+          child: StepItem(
             title: getSteps()[index],
+            index: (index + 1).toString(),
+            isSelected: true,
           ),
         );
       }),
@@ -18,6 +20,11 @@ class CheckoutSteps extends StatelessWidget {
   }
 
   List<String> getSteps() {
-    return ['الشحن', 'العنوان', 'الدفع', 'المراجعة'];
+    return [
+      'الشحن',
+      'العنوان',
+      'الدفع',
+      'المراجعة',
+    ];
   }
 }
