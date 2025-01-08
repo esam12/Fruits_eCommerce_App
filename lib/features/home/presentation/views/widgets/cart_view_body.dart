@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
+import 'package:fruits/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruits/features/home/presentation/cubit/cart_cubit.dart';
 import 'package:fruits/features/home/presentation/views/widgets/cart_header.dart';
 import 'package:fruits/features/home/presentation/views/widgets/cart_items_list.dart';
@@ -49,13 +50,17 @@ class CartViewBody extends StatelessWidget {
         ),
         if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty)
           Positioned(
-              left: 16,
-              right: 16,
-              bottom: MediaQuery.sizeOf(context).height * .07,
-              child: CustomButton(
-                  onPressed: () {},
-                  text:
-                      'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} ليرة'))
+            left: 16,
+            right: 16,
+            bottom: MediaQuery.sizeOf(context).height * .07,
+            child: CustomButton(
+              onPressed: () {
+                Navigator.pushNamed(context, CheckoutView.routeName);
+              },
+              text:
+                  'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} ليرة',
+            ),
+          )
       ],
     );
   }

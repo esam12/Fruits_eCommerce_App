@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits/core/utils/constants/app_text_styles.dart';
-import 'package:fruits/core/widgets/appbar/custom_app_bar.dart';
+import 'package:fruits/core/widgets/custom_app_bar.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 
 class CheckoutView extends StatelessWidget {
@@ -10,15 +9,9 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CheckoutViewBody(),
-      appBar: CustomAppBar(
-        showBackArrow: true,
-        title: Text(
-          'الشحن',
-          style: TextStyles.bold19,
-        ),
-      ),
+    return Scaffold(
+      body: const CheckoutViewBody(),
+      appBar: buildAppBar(context, title: 'الشحن'),
     );
   }
 }
