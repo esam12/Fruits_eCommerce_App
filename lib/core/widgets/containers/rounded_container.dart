@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
@@ -28,7 +27,8 @@ class TRoundedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       width: width,
       height: height,
       padding: padding,
