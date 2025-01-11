@@ -20,6 +20,7 @@ class AppColors {
   static const Color lightGreenTextColor = Color(0xFF23AA49);
   static const Color darkGreenTextColor = Color(0xFF3A8B33);
   static const Color checkoutTextItemColor = Color(0xFFAAAAAA);
+  static const Color greyDarkTextColor = Color(0xFF4E5556);
 
   /// Divider Colors
   static const Color dividerColor = Color(0xFFDCDEDE);
@@ -48,6 +49,6 @@ class AppColors {
   static const Color dark = Color(0xFF272727);
   static const Color primaryBackground = Color(0xFFF3F5FF);
   static const Color notificationItemBackground = Color(0xFFEBF9F1);
-  
+
   static const Color checkoutItemBackground = Color(0xFFF2F3F3);
 }
