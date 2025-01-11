@@ -55,7 +55,9 @@ class CartViewBody extends StatelessWidget {
             bottom: MediaQuery.sizeOf(context).height * .07,
             child: CustomButton(
               onPressed: () {
-                Navigator.pushNamed(context, CheckoutView.routeName);
+                if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
+                  Navigator.pushNamed(context, CheckoutView.routeName);
+                }
               },
               text:
                   'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} ليرة',
