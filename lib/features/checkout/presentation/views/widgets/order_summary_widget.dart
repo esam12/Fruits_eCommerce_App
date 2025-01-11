@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
@@ -15,6 +14,7 @@ class OrderSummaryWidget extends StatelessWidget {
     return PaymentItem(
       title: 'ملخص الطلب: ',
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -52,7 +52,7 @@ class OrderSummaryWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: Sizes.sm),
-          const Divider(thickness: .5),
+          const Divider(thickness: .5, indent: 50, endIndent: 50),
           const SizedBox(height: Sizes.sm),
           const Row(
             children: [

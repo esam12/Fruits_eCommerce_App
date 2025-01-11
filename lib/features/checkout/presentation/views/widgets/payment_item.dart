@@ -12,6 +12,7 @@ class PaymentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: TextStyles.bold13),
         const SizedBox(height: 8.0),

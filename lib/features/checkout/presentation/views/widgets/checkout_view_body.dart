@@ -12,11 +12,18 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
+  int currentPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
     pageController = PageController();
+
+    pageController.addListener(() {
+      setState(() {
+        currentPageIndex = pageController.page!.toInt();
+      });
+    });
   }
 
   @override
@@ -32,20 +39,38 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 16.0),
-          const CheckoutSteps(),
+          CheckoutSteps(
+            currentPageIndex: currentPageIndex,
+            pageController: pageController,
+          ),
           const SizedBox(height: 32),
           CheckoutStepsViewPage(pageController: pageController),
           CustomButton(
               onPressed: () {
-                pageController.nextPage(
+                pageController.animateToPage(
+                  currentPageIndex + 1,
                   duration: const Duration(milliseconds: 300),
-                  curve: Curves.linear,
+                  curve: Curves.bounceInOut,
                 );
               },
-              text: 'التالي'),
+              text: _buildButtonText(currentPageIndex)),
           const SizedBox(height: 32),
         ],
       ),
     );
+  }
+
+  // build button text based on current page index.
+  String _buildButtonText(int currentPageIndex) {
+    switch (currentPageIndex) {
+      case 0:
+        return 'التالي';
+      case 1:
+        return 'التالي';
+      case 2:
+        return 'الدفع عبر PayPal';
+      default:
+        return 'التالي';
+    }
   }
 }
