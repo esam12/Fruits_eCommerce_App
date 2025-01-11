@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits/features/auth/presentation/views/signup_view.dart';
 import 'package:fruits/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import 'package:fruits/features/checkout/presentation/views/checkout_review_view.dart';
 import 'package:fruits/features/checkout/presentation/views/checkout_view.dart';
-import 'package:fruits/features/checkout/presentation/views/checkout_payment_view.dart';
 import 'package:fruits/features/checkout/presentation/views/success_payment_view.dart';
 
 import 'package:fruits/features/home/presentation/views/main_view.dart';
@@ -38,8 +36,6 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const MainView(),
       );
-    
-    
 
     /// Best Seller Screen
     case BestSellingView.routeName:
@@ -66,7 +62,6 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     /// Cart Screen
 
-
     /// Checkout Screen
     case CheckoutView.routeName:
       return MaterialPageRoute(builder: (context) => const CheckoutView());
@@ -74,14 +69,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     /// Checkout Address Screen
 
     /// Checkout Payment Screen
-    case CheckoutPaymentView.routeName:
-      return MaterialPageRoute(
-          builder: (context) => const CheckoutPaymentView());
 
     /// Checkout Review Screen
-    case CheckoutReviewView.routeName:
-      return MaterialPageRoute(
-          builder: (context) => const CheckoutReviewView());
 
     /// Success Payment Screen
     case SuccessPaymentView.routeName:
