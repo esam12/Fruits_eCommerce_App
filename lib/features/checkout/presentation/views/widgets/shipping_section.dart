@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
+import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/shipping_item.dart';
+import 'package:provider/provider.dart';
 
 class ShippingSection extends StatefulWidget {
   const ShippingSection({super.key});
@@ -34,7 +36,11 @@ class _ShippingSectionState extends State<ShippingSection> {
           },
           title: 'الدفع اونلاين',
           subTitle: 'يرجى تحديد طريقة الدفع',
-          price: '40.0',
+          price: context
+              .read<OrderEntity>()
+              .cartEntity
+              .calculateTotalPrice()
+              .toString(),
           isSelected: selectedIndex == 1,
         ),
       ],

@@ -56,7 +56,11 @@ class CartViewBody extends StatelessWidget {
             child: CustomButton(
               onPressed: () {
                 if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
-                  Navigator.pushNamed(context, CheckoutView.routeName);
+                  Navigator.pushNamed(
+                    context,
+                    CheckoutView.routeName,
+                    arguments: context.read<CartCubit>().cartEntity,
+                  );
                 }
               },
               text:

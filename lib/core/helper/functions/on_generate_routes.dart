@@ -4,7 +4,7 @@ import 'package:fruits/features/auth/presentation/views/signup_view.dart';
 import 'package:fruits/features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import 'package:fruits/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruits/features/checkout/presentation/views/success_payment_view.dart';
-
+import 'package:fruits/features/home/domain/entities/cart_entity.dart';
 import 'package:fruits/features/home/presentation/views/main_view.dart';
 import 'package:fruits/features/notification/presentation/views/notification_view.dart';
 import 'package:fruits/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -64,7 +64,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     /// Checkout Screen
     case CheckoutView.routeName:
-      return MaterialPageRoute(builder: (context) => const CheckoutView());
+      return MaterialPageRoute(
+        builder: (context) => CheckoutView(
+          cartEntity: settings.arguments as CartEntity,
+        ),
+      );
 
     /// Checkout Address Screen
 
