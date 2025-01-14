@@ -33,7 +33,13 @@ class ShippingAddressWidget extends StatelessWidget {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              pageController.animateToPage(
+                pageController.page!.toInt() - 1,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.bounceIn,
+              );
+            },
             child: SizedBox(
               child: Row(
                 children: [
