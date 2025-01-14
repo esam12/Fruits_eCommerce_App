@@ -22,10 +22,16 @@ class _ShippingSectionState extends State<ShippingSection> {
           onTap: () {
             selectedIndex = 0;
             setState(() {});
+            context.read<OrderEntity>().payWithCash = true;
+
           },
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: '40.0',
+          price: context
+              .read<OrderEntity>()
+              .cartEntity
+              .calculateTotalPrice()
+              .toString(),
           isSelected: selectedIndex == 0,
         ),
         const SizedBox(height: Sizes.spaceBtwItems),
@@ -33,6 +39,7 @@ class _ShippingSectionState extends State<ShippingSection> {
           onTap: () {
             selectedIndex = 1;
             setState(() {});
+            context.read<OrderEntity>().payWithCash = false;
           },
           title: 'الدفع اونلاين',
           subTitle: 'يرجى تحديد طريقة الدفع',
