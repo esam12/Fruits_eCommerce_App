@@ -14,4 +14,10 @@ class ShippingAddressEntity {
     this.addressDetails,
     this.phoneNumber,
   });
+
+  // Separate method to display shipping address
+  String getAddress() {
+
+    return '$address, $city, $addressDetails';
+  }
 }

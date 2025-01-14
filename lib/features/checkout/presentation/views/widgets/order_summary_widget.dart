@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
+import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/payment_item.dart';
+import 'package:provider/provider.dart';
 
 class OrderSummaryWidget extends StatelessWidget {
   const OrderSummaryWidget({
@@ -25,8 +27,8 @@ class OrderSummaryWidget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              const Text(
-                '150.0 ليرة',
+              Text(
+                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice()} ليرة',
                 style: TextStyles.semiBold16,
               ),
             ],
@@ -54,15 +56,15 @@ class OrderSummaryWidget extends StatelessWidget {
           const SizedBox(height: Sizes.sm),
           const Divider(thickness: .5, indent: 50, endIndent: 50),
           const SizedBox(height: Sizes.sm),
-          const Row(
+          Row(
             children: [
-              Text(
+              const Text(
                 'المجموع الكلي: ',
                 style: TextStyles.bold16,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
-                '180.0 ليرة',
+                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 30.0} ليرة',
                 style: TextStyles.bold16,
               ),
             ],
