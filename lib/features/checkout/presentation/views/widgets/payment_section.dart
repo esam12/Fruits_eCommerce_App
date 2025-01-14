@@ -8,14 +8,16 @@ class PaymentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: Sizes.lg),
-        OrderSummaryWidget(),
-        SizedBox(height: Sizes.spaceBtwSections),
-        ShippingAddressWidget(),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: Sizes.lg),
+          OrderSummaryWidget(),
+          SizedBox(height: Sizes.spaceBtwSections),
+          ShippingAddressWidget(),
+        ],
+      ),
     );
   }
 }
