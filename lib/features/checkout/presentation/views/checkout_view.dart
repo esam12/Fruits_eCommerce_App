@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits/core/helper/functions/get_user.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
 import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_view_body.dart';
@@ -23,7 +24,10 @@ class _CheckoutViewState extends State<CheckoutView> {
   void initState() {
     super.initState();
     // Initialize the OrderEntity once in initState
-    orderEntity = OrderEntity(cartEntity: widget.cartEntity);
+    orderEntity = OrderEntity(
+      cartEntity: widget.cartEntity,
+      uID: getUser().uId,
+    );
   }
 
   @override
