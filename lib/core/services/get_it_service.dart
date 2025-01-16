@@ -1,5 +1,5 @@
-import 'package:fruits/core/repos/product_repo.dart';
-import 'package:fruits/core/repos/product_repo_impl.dart';
+import 'package:fruits/core/repos/product_repo/product_repo.dart';
+import 'package:fruits/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruits/core/services/data_service.dart';
 import 'package:fruits/core/services/firebase_auth_service.dart';
 import 'package:fruits/core/services/firestore_service.dart';

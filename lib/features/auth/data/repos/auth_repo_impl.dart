@@ -79,7 +79,7 @@ class AuthRepoImpl extends AuthRepo {
 
       var userEntity = UserModel.fromFirebaseUser(user);
       var isUserExist = await databaseService.checkIfDataExists(
-          path: BackendEndpoint.isUserExists, docuementId: user.uid);
+          path: BackendEndpoint.isUserExists, documentId: user.uid);
 
       if (isUserExist) {
         await getUserData(uid: user.uid);
@@ -135,7 +135,7 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<UserEntity> getUserData({required String uid}) async {
     var userData = await databaseService.getData(
-        path: BackendEndpoint.getUsersData, docuementId: uid);
+        path: BackendEndpoint.getUsersData, documentId: uid);
     return UserModel.fromJson(userData);
   }
 

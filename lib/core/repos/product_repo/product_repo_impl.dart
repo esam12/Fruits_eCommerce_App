@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/errors/failures.dart';
 import 'package:fruits/core/models/product_model.dart';
-import 'package:fruits/core/repos/product_repo.dart';
+import 'package:fruits/core/repos/product_repo/product_repo.dart';
 import 'package:fruits/core/services/firestore_service.dart';
 import 'package:fruits/core/utils/backend_endpoint.dart';
 
