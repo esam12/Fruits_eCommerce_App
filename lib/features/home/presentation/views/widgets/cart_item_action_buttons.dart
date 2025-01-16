@@ -21,14 +21,14 @@ class CartItemActionButtons extends StatelessWidget {
           icon: Icons.add,
           color: AppColors.primaryColor,
           onPressed: () {
-            cartItemEntity.incrementCount();
+            cartItemEntity.incrementQuantity();
             context.read<CartCubit>().cartItemUpdated(cartItemEntity);
           },
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            cartItemEntity.count.toString(),
+            cartItemEntity.quantity.toString(),
             textAlign: TextAlign.center,
             style: TextStyles.bold16,
           ),
@@ -38,9 +38,9 @@ class CartItemActionButtons extends StatelessWidget {
           icon: Icons.remove,
           color: const Color(0xFFF3F5F7),
           onPressed: () {
-            cartItemEntity.decrementCount();
+            cartItemEntity.decrementQuantity();
             context.read<CartCubit>().cartItemUpdated(cartItemEntity);
-            if (cartItemEntity.count == 0) {
+            if (cartItemEntity.quantity == 0) {
               context.read<CartCubit>().removeCartItem(cartItemEntity);
             }
           },

@@ -18,11 +18,11 @@ class CartCubit extends Cubit<CartState> {
     if (isItemInCart) {
       // if item is in cart, increment count
       CartItemEntity cartItemEntity = cartEntity.getItemFromCart(productEntity);
-      cartItemEntity.incrementCount();
+      cartItemEntity.incrementQuantity();
     } else {
       CartItemEntity cartItemEntity = CartItemEntity(
         productEntity: productEntity,
-        count: 1,
+        quantity: 1,
       );
       cartEntity.addCartItem(cartItemEntity);
     }

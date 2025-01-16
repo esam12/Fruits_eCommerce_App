@@ -3,31 +3,31 @@ import 'package:fruits/core/entities/product_entity.dart';
 
 class CartItemEntity extends Equatable {
   final ProductEntity productEntity;
-  int count;
+  int quantity;
 
   CartItemEntity({
     required this.productEntity,
-    this.count = 1,
+    this.quantity = 1,
   });
 
   /// Calculate total price
   num calculateTotalPrice() {
-    return productEntity.price * count;
+    return productEntity.price * quantity;
   }
 
   /// Calculate total weight
   num calculateTotalWeight() {
-    return productEntity.unitAmount * count;
+    return productEntity.unitAmount * quantity;
   }
 
-  /// Increment count
-  void incrementCount() {
-    count++;
+  /// Increment quantity
+  void incrementQuantity() {
+    quantity++;
   }
 
-  /// Decrement count
-  void decrementCount() {
-    count--;
+  /// Decrement quantity
+  void decrementQuantity() {
+    quantity--;
   }
 
   @override
