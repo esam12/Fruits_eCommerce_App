@@ -1,3 +1,5 @@
+import 'package:fruits/core/repos/orders_repo/orders_repo.dart';
+import 'package:fruits/core/repos/orders_repo/orders_repo_impl.dart';
 import 'package:fruits/core/repos/product_repo/product_repo.dart';
 import 'package:fruits/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruits/core/services/data_service.dart';
@@ -27,5 +29,10 @@ void setUpGetIt() {
     ),
   );
 
-
+  // Order Repo
+  getIt.registerSingleton<OrdersRepo>(
+    OrdersRepoImpl(
+      fireStoreService: getIt<DatabaseService>(),
+    ),
+  );
 }
