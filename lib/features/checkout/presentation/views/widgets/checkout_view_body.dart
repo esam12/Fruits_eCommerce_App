@@ -5,6 +5,10 @@ import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits/core/utils/popups/loaders.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/amount.dart';
+import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/item_list.dart';
+import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
+import 'package:fruits/features/checkout/presentation/manager/add_order/add_order_cubit.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_steps.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_steps_view_page.dart';
 import 'package:provider/provider.dart';
@@ -117,74 +121,39 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       autovalidateMode.value = AutovalidateMode.always;
     }
   }
-  
-  void _proceedToPayment(BuildContext context) {
-      Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => PaypalCheckoutView(
-                  sandboxMode: true,
-                  clientId: "YOUR CLIENT ID",
-                  secretKey: "YOUR SECRET KEY",
-                  transactions: const [
-                    {
-                      "amount": {
-                        "total": '100',
-                        "currency": "USD",
-                        "details": {
-                          "subtotal": '100',
-                          "shipping": '0',
-                          "shipping_discount": 0
-                        }
-                      },
-                      "description": "The payment transaction description.",
-                      // "payment_options": {
-                      //   "allowed_payment_method":
-                      //       "INSTANT_FUNDING_SOURCE"
-                      // },
-                      "item_list": {
-                        "items": [
-                          {
-                            "name": "Apple",
-                            "quantity": 4,
-                            "price": '10',
-                            "currency": "USD"
-                          },
-                          {
-                            "name": "Pineapple",
-                            "quantity": 5,
-                            "price": '12',
-                            "currency": "USD"
-                          }
-                        ],
 
-                        // Optional
-                        //   "shipping_address": {
-                        //     "recipient_name": "Tharwat samy",
-                        //     "line1": "tharwat",
-                        //     "line2": "",
-                        //     "city": "tharwat",
-                        //     "country_code": "EG",
-                        //     "postal_code": "25025",
-                        //     "phone": "+00000000",
-                        //     "state": "ALex"
-                        //  },
-                      }
-                    }
-                  ],
-                  note: "Contact us for any questions on your order.",
-                  onSuccess: (Map params) async {
-                    log("onSuccess: $params");
-                    Navigator.pop(context);
-                  },
-                  onError: (error) {
-                    log("onError: $error");
-                    Navigator.pop(context);
-                  },
-                  onCancel: () {
-                    print('cancelled:');
-                    Navigator.pop(context);
-                  },
-                ),
-              ));
-          
+  void _proceedToPayment(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    var contextCubit = context.read<AddOrderCubit>();
+
+    PaypalPaymentEntity paymentEntity = PaypalPaymentEntity(
+      amount: Amount.fromEntity(orderEntity),
+      itemList: ItemList.fromEntity(items: orderEntity.cartEntity.cartItems),
+    );
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => PaypalCheckoutView(
+        sandboxMode: true,
+        clientId: "YOUR CLIENT ID",
+        secretKey: "YOUR SECRET KEY",
+        transactions: [
+          paymentEntity.toJson(),
+        ],
+        note: "Contact us for any questions on your order.",
+        onSuccess: (Map params) async {
+          log("onSuccess: $params");
+          Navigator.pop(context);
+          contextCubit.addOrder(orderEntity);
+        },
+        onError: (error) {
+          log("onError: $error");
+          Navigator.pop(context);
+        },
+        onCancel: () {
+          print('cancelled:');
+          Navigator.pop(context);
+        },
+      ),
+    ));
   }
 }
