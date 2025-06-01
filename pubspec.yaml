@@ -40,6 +40,7 @@ dependencies:
   test: ^1.25.2
   timelines: ^0.1.0
   flutter_paypal_payment: ^1.0.8
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
