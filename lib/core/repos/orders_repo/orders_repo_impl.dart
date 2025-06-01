@@ -18,6 +18,7 @@ class OrdersRepoImpl implements OrdersRepo {
     try {
       await fireStoreService.addData(
           path: BackendEndpoint.addOrders,
+          documentId: OrderModel.fromEntity(orderEntity).orderId,
           data: OrderModel.fromEntity(orderEntity).toJson());
       return right(null);
     } catch (e) {
