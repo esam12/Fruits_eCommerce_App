@@ -70,9 +70,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 } else if (currentPageIndex == 1) {
                   _handleAddressValidation(context);
                 } else {
-                  _proceedToPayment(context);
-                  // var orderEntity = context.read<OrderEntity>();
-                  // context.read<AddOrderCubit>().addOrder(orderEntity);
+                  // _proceedToPayment(context);
+                  var orderEntity = context.read<OrderEntity>();
+                  context.read<AddOrderCubit>().addOrder(orderEntity);
                 }
               },
               text: _buildButtonText(currentPageIndex)),
