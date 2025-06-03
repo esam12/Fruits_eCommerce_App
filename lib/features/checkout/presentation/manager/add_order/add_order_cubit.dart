@@ -12,7 +12,9 @@ class AddOrderCubit extends Cubit<AddOrderState> {
   Future<void> addOrder(OrderEntity order) async {
     emit(AddOrderLoading());
     final result = await ordersRepo.addOrder(orderEntity: order);
-    result.fold((failure) => emit(AddOrderFailure(message: failure.message)),
-        (success) => emit(AddOrderSuccess()));
+    result.fold(
+      (failure) => emit(AddOrderFailure(message: failure.message)),
+      (success) => emit(AddOrderSuccess()),
+    );
   }
 }
