@@ -11,13 +11,14 @@ class OrderModel {
   final String paymentMethod;
   final String orderId;
 
-  OrderModel(
-      {required this.totalPrice,
-      required this.uId,
-      required this.shippingAddressModel,
-      required this.orderProducts,
-      required this.paymentMethod,
-      required this.orderId});
+  OrderModel({
+    required this.totalPrice,
+    required this.uId,
+    required this.shippingAddressModel,
+    required this.orderProducts,
+    required this.paymentMethod,
+    required this.orderId,
+  });
 
   factory OrderModel.fromEntity(OrderEntity orderEntity) {
     return OrderModel(
