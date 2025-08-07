@@ -35,6 +35,8 @@ class AuthRepoImpl extends AuthRepo {
 
       await addUserData(user: userEntity);
 
+      await saveUserData(user: userEntity);
+
       return right(userEntity);
     } on CustomException catch (e) {
       if (user != null) {
