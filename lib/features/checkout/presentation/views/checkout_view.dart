@@ -4,7 +4,7 @@ import 'package:fruits/core/helper/functions/get_user.dart';
 import 'package:fruits/core/repos/orders_repo/orders_repo.dart';
 import 'package:fruits/core/services/get_it_service.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/manager/add_order/add_order_cubit.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/add_order_cubit_bloc_builder.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/checkout_view_body.dart';
