@@ -9,6 +9,7 @@ import 'package:fruits/features/home/presentation/views/main_view.dart';
 import 'package:fruits/features/notification/presentation/views/notification_view.dart';
 import 'package:fruits/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits/features/order_tracking/presentation/views/order_tracking_view.dart';
+import 'package:fruits/features/orders/presentation/views/orders_view.dart';
 import 'package:fruits/features/our_products/presentation/views/products_view.dart';
 import 'package:fruits/features/searching/presentation/views/searching_view.dart';
 import 'package:fruits/features/splash/presentation/views/splash_view.dart';
@@ -52,6 +53,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     /// Notification Screen
     case NotificationView.routeName:
       return MaterialPageRoute(builder: (context) => const NotificationView());
+    
+    case OrdersView.routeName:
+      return MaterialPageRoute(builder: (context) => const OrdersView());
 
     /// Product details Screen
     // case ProductDetailView.routeName:
