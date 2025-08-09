@@ -1,4 +1,4 @@
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'amount.dart';
 import 'item_list.dart';
 
