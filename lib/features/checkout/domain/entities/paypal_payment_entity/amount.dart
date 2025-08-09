@@ -1,5 +1,5 @@
 import 'package:fruits/core/helper/functions/get_currency.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 
 import 'details.dart';
 
