@@ -28,6 +28,6 @@ class OrderEntity {
   num calculateTotalPriceAfterDiscount() {
     return cartEntity.calculateTotalPrice() +
         calculateShippingCost() -
-        calculateTotalPriceAfterDiscount();
+        calculateShippingDiscount();
   }
 }

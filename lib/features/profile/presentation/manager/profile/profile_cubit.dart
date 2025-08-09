@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits/features/profile/domain/entities/profile_entity.dart';
 import 'package:fruits/features/profile/domain/repos/profile_repository.dart';
 
 part 'profile_state.dart';
@@ -25,6 +26,20 @@ class ProfileCubit extends Cubit<ProfileState> {
         errorMessage: e.toString(),
       ));
     }
+  }
+
+  Future<void> updateUserProfile(UserProfileEntity userProfile) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      await profileRepository.updateUserProfile(userProfile);
+      emit(state.copyWith(isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: e.toString(),
+      ));
+    }
+  
   }
 
   void toggleCurrentPasswordVisibility() {

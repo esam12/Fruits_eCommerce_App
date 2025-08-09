@@ -3,6 +3,7 @@ part of 'profile_cubit.dart';
 class ProfileState {
   final String name;
   final String email;
+
   final bool isLoading;
   final bool isCurrentPasswordHidden;
   final bool isNewPasswordHidden;
@@ -52,4 +53,3 @@ class ProfileState {
     );
   }
 }
-

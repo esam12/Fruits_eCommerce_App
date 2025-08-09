@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/payment_item.dart';
 import 'package:provider/provider.dart';
 

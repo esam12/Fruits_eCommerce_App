@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits/core/utils/popups/loaders.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/amount.dart';
 import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/item_list.dart';
 import 'package:fruits/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';

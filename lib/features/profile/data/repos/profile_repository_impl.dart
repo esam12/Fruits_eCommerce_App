@@ -39,7 +39,18 @@ class ProfileRepositoryImpl implements ProfileRepository {
 
   @override
   Future<void> updateUserProfile(UserProfileEntity userProfileEntity) {
-    // TODO: implement updateUserProfile
-    throw UnimplementedError();
+    try {
+      final user = firebaseAuthService.authUser;
+
+      userProfileEntity.id = user!.uid;
+
+      return databaseService.addData(
+        path: 'users',
+        documentId: user.uid,
+        data: userProfileEntity.toMap(),
+      );
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
+import 'package:fruits/features/profile/domain/entities/profile_entity.dart';
 import 'package:fruits/features/profile/presentation/manager/profile/profile_cubit.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -34,16 +35,18 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget _buildProfileForm(BuildContext context, ProfileState state) {
+    final formKey = GlobalKey<FormState>();
     final nameController = TextEditingController(text: state.name);
     final emailController = TextEditingController(text: state.email);
     final passwordController = TextEditingController();
     final newPasswordController = TextEditingController();
     final confirmPasswordController = TextEditingController();
 
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Form(
-        key: GlobalKey<FormState>(), // يمكنك حفظه في متغير إذا احتجت له لاحقًا
+        key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -124,12 +127,18 @@ class ProfileWidget extends StatelessWidget {
             CustomButton(
               text: 'حفظ التغييرات',
               onPressed: () {
-                // if (Form.of(context)?.validate() ?? false) {
-                //   // يمكنك استدعاء ميثود حفظ هنا من داخل Cubit
-                //   ScaffoldMessenger.of(context).showSnackBar(
-                //     const SnackBar(content: Text('تم حفظ التغييرات')),
-                //   );
-                // }
+                if (formKey.currentState!.validate()) {
+                  final userProfile = UserProfileEntity(
+                   
+                    name: nameController.text,
+                    email: emailController.text,
+                    
+                  );
+                  context.read<ProfileCubit>().updateUserProfile(userProfile);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('تم حفظ التغييرات')),
+                  );
+                }
               },
             ),
           ],

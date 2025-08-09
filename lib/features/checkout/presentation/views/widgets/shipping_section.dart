@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'package:fruits/features/checkout/presentation/views/widgets/shipping_item.dart';
 import 'package:provider/provider.dart';
 

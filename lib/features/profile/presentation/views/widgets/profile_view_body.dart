@@ -6,6 +6,7 @@ import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
 import 'package:fruits/core/widgets/containers/circular_image.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
+import 'package:fruits/features/orders/presentation/views/orders_view.dart';
 import 'package:fruits/features/profile/presentation/manager/profile/profile_cubit.dart';
 import 'package:fruits/features/profile/presentation/views/widgets/profile_widget.dart';
 import 'package:iconsax/iconsax.dart';
@@ -127,6 +128,10 @@ class ProfileViewBody extends StatelessWidget {
         );
         break;
       case 'طلباتي':
+        Navigator.push(
+          context!,
+          MaterialPageRoute(builder: (_) => const OrdersView()),
+        );
         break;
       default:
         print('Unknown item tapped');

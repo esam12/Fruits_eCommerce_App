@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/text_form/custom_text_form_field.dart';
-import 'package:fruits/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruits/features/orders/domain/entities/order_entity.dart';
 import 'package:provider/provider.dart';
 
 class AddressInputSection extends StatelessWidget {
