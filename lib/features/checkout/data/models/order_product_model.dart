@@ -1,3 +1,4 @@
+import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/features/home/domain/entities/cart_item_entity.dart';
 
 class OrderProductModel {
@@ -23,6 +24,35 @@ class OrderProductModel {
         imageUrl: cartItemEntity.productEntity.imageUrl!,
         price: cartItemEntity.productEntity.price,
         quantity: cartItemEntity.quantity);
+  }
+
+  // fromJson
+  factory OrderProductModel.fromJson(Map<String, dynamic> json) {
+    return OrderProductModel(
+      name: json['name'] ?? '',
+      code: json['code'] ?? '',
+      imageUrl: json['imageUrl'] ?? '',
+      price: json['price'] ?? 0,
+      quantity: json['quantity'] ?? 0,
+    );
+  } 
+
+  // toEntity
+ CartItemEntity toEntity() {
+    return CartItemEntity(
+      productEntity: ProductEntity(
+        name: name,
+        price: price,
+        code: code,
+        description: '', // إذا ما عندك بيانات للوصف، حط قيمة افتراضية
+        isFeatured: false,
+        imageUrl: imageUrl,
+        expirationsMonths: 0,
+        numberOfCalories: 0,
+        unitAmount: 0,
+      ),
+      quantity: quantity.toInt(),
+    );
   }
 
   // toJson
