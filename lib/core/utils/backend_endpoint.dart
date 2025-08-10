@@ -6,4 +6,5 @@ class BackendEndpoint
  static const getProducts = 'products';
 
  static const addOrders = 'orders';
+ static const getOrders = 'orders';
 }
