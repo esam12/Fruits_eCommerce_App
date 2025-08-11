@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
+import 'package:fruits/core/widgets/containers/circular_image.dart';
 import 'package:fruits/features/orders/presentation/manager/orders/order_cubit.dart';
 import 'package:fruits/features/orders/presentation/views/widgets/order_tile.dart';
 import 'package:fruits/features/orders/presentation/views/widgets/tracking_steps_widget.dart';
@@ -43,10 +45,59 @@ class OrdersViewBody extends StatelessWidget {
                                 style: TextStyles.bold16,
                               ),
                               const SizedBox(height: Sizes.sm),
-                              ...order.orderProducts.map((product) => Text(
-                                    '${product.name} x${product.quantity}',
-                                    style: TextStyles.regular13,
-                                  )),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: order.orderProducts.length,
+                                itemBuilder: (context, index) {
+                                  final product = order.orderProducts[index];
+                                  return Card(
+                                    elevation: 2,
+                                    margin: const EdgeInsets.symmetric(
+                                        vertical: Sizes.xs),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(Sizes.sm),
+                                      child: Row(
+                                        children: [
+                                          // Product Image
+                                          CircularImage(
+                                            image: product.imageUrl,
+                                            isNetworkImage: true,
+                                            imageHeight: 60,
+                                            imageWidth: 60,
+                                            
+                                          ),
+                                          const SizedBox(width: Sizes.md),
+                                          // Product Name and Quantity
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  product.name,
+                                                  style: TextStyles.bold13,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                                const SizedBox(
+                                                    height: Sizes.xs),
+                                                Text(
+                                                  'الكمية: ${product.quantity}',
+                                                  style: TextStyles.regular13
+                                                      .copyWith(
+                                                          color: AppColors
+                                                              .greyTextColor),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         ),
