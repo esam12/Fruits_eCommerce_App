@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/helper/functions/helper_functions.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/sizes.dart';
+import 'package:fruits/core/widgets/shimmers/shimmer_effect.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({
@@ -48,8 +49,8 @@ class CircularImage extends StatelessWidget {
                   imageUrl: image,
                   fit: boxFit,
                   color: overlayColor,
-                  // progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  //     const TShimmerEffect(width: 55, height: 55, raduis: 55),
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      const TShimmerEffect(width: 55, height: 55, raduis: 55),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 )
               : Image(
