@@ -33,6 +33,8 @@ class ProductEntity extends Equatable {
     this.reviews = const [],
   });
 
+  
+
   @override
   List<Object?> get props => [code];
 }
