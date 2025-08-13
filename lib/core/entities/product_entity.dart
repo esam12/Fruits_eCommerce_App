@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:fruits/core/entities/review_entity.dart';
 
 class ProductEntity extends Equatable {
+   String id;
   final String name;
   final num price;
   final String code;
@@ -18,6 +19,7 @@ class ProductEntity extends Equatable {
   final List<ReviewEntity> reviews;
 
   ProductEntity({
+    this.id = '',
     required this.name,
     required this.price,
     required this.code,
