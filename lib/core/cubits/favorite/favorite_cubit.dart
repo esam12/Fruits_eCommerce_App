@@ -7,8 +7,7 @@ part 'favorite_state.dart';
 class FavoriteCubit extends Cubit<FavoriteState> {
   final FavoriteRepository favoriteRepository;
 
-  FavoriteCubit({required this.favoriteRepository})
-      : super(FavoriteInitial());
+  FavoriteCubit({required this.favoriteRepository}) : super(FavoriteInitial());
 
   Future<void> loadFavorites() async {
     try {
@@ -19,31 +18,22 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     }
   }
 
-  Future<void> addFavorite(String productId) async {
-    try {
-      await favoriteRepository.addFavorite(productId);
-      if (state is FavoriteSuccess) {
-        final updatedFavorites = List<String>.from(
-            (state as FavoriteSuccess).favorites)
-          ..add(productId);
-        emit(FavoriteSuccess(favorites: updatedFavorites));
-      } else {
-        emit(FavoriteSuccess(favorites: [productId]));
-      }
-    } catch (e) {
-      emit(FavoriteFailure(message: e.toString()));
-    }
-  }
+  Future<void> toggleFavorite(String productId) async {
+    if (state is! FavoriteSuccess) return;
 
-  Future<void> removeFavorite(String productId) async {
+    final currentFavorites = List<String>.from(
+      (state as FavoriteSuccess).favorites,
+    );
+
     try {
-      await favoriteRepository.removeFavorite(productId);
-      if (state is FavoriteSuccess) {
-        final updatedFavorites = List<String>.from(
-            (state as FavoriteSuccess).favorites)
-          ..remove(productId);
-        emit(FavoriteSuccess(favorites: updatedFavorites));
+      if (currentFavorites.contains(productId)) {
+        await favoriteRepository.removeFavorite(productId);
+        currentFavorites.remove(productId);
+      } else {
+        await favoriteRepository.addFavorite(productId);
+        currentFavorites.add(productId);
       }
+      emit(FavoriteSuccess(favorites: currentFavorites));
     } catch (e) {
       emit(FavoriteFailure(message: e.toString()));
     }
