@@ -8,6 +8,7 @@ import 'package:fruits/core/widgets/containers/circular_image.dart';
 import 'package:fruits/core/widgets/custom_app_bar.dart';
 import 'package:fruits/features/orders/presentation/views/orders_view.dart';
 import 'package:fruits/features/profile/presentation/manager/profile/profile_cubit.dart';
+import 'package:fruits/features/profile/presentation/views/about_us_view.dart';
 import 'package:fruits/features/profile/presentation/views/widgets/profile_widget.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -23,7 +24,6 @@ class ProfileViewBody extends StatelessWidget {
       {'title': 'الاشعارات', 'icon': Iconsax.notification},
       {'title': 'اللغة', 'icon': Iconsax.language_circle},
       {'title': 'الوضع', 'icon': Iconsax.moon},
-      {'title': 'من نحن', 'icon': Iconsax.info_circle},
     ];
     return SingleChildScrollView(
       child: Column(
@@ -109,6 +109,31 @@ class ProfileViewBody extends StatelessWidget {
               );
             }).toList(),
           ),
+          const SizedBox(
+            height: Sizes.md,
+          ),
+
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: Sizes.md),
+            child: Text('المساعدة', style: TextStyles.semiBold13),
+          ),
+
+          const SizedBox(
+            height: Sizes.md,
+          ),
+
+          ListTile(
+            leading: const Icon(
+              Iconsax.info_circle,
+              color: AppColors.primaryColor,
+            ),
+            title: const Text('من نحن', style: TextStyles.regular13),
+            trailing: const Icon(Icons.arrow_forward_ios_rounded,
+                color: AppColors.primaryColor),
+            onTap: () {
+              _handleTap('من نحن', context);
+            },
+          )
         ],
       ),
     );
@@ -127,10 +152,18 @@ class ProfileViewBody extends StatelessWidget {
           ),
         );
         break;
+
       case 'طلباتي':
         Navigator.push(
           context!,
           MaterialPageRoute(builder: (_) => const OrdersView()),
+        );
+        break;
+
+      case 'من نحن':
+        Navigator.push(
+          context!,
+          MaterialPageRoute(builder: (_) => const AboutUsView()),
         );
         break;
       default:
