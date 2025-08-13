@@ -4,10 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruits/core/errors/exception.dart';
-import 'package:fruits/core/services/get_it_service.dart';
 import 'package:fruits/core/services/shared_preferences_singleton.dart';
 import 'package:fruits/core/utils/constants/constants.dart';
-import 'package:fruits/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits/features/home/presentation/views/main_view.dart';
 import 'package:fruits/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -16,7 +14,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseAuthService {
   /// Variables
   final _auth = FirebaseAuth.instance;
-  final authRepo = getIt<AuthRepo>();
 
   /// Get Authenticared User Data
   User? get authUser => _auth.currentUser!;
@@ -32,15 +29,8 @@ class FirebaseAuthService {
         SharedPreferencesSingleton.getBool(kIsOnBoardingViewSeen);
 
     if (isOnBoardingViewSeen) {
-      var isLoggedIn = FirebaseAuthService().isLoggedIn();
+      final isLoggedIn = FirebaseAuthService().isLoggedIn();
       if (isLoggedIn) {
-        
-        final uid = authUser!.uid;
-        final userEntity = await authRepo.getUserData(uid: uid);
-        await authRepo.saveUserData(user: userEntity);
-
-        log(userEntity.toString());
-
         Navigator.pushReplacementNamed(context, MainView.routeName);
       } else {
         Navigator.pushReplacementNamed(context, SigninView.routeName);
