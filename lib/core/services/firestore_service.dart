@@ -24,7 +24,7 @@ class FireStoreService implements DatabaseService {
       Map<String, dynamic>? query}) async {
     if (documentId != null) {
       var data = await firestore.collection(path).doc(documentId).get();
-      return data.data() as Map<String, dynamic>;
+      return data.exists ? data.data() as Map<String, dynamic> : null;
     } else {
       Query<Map<String, dynamic>> data = firestore.collection(path);
       if (query != null) {
