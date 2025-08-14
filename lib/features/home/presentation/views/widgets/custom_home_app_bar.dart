@@ -3,6 +3,7 @@ import 'package:fruits/core/helper/functions/get_user.dart';
 import 'package:fruits/core/utils/constants/app_images.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/appbar/notification_widget.dart';
+import 'package:fruits/features/notification/presentation/views/notification_view.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -10,7 +11,13 @@ class CustomHomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      trailing: const NotificationWidget(),
+      trailing: GestureDetector(
+        child: const NotificationWidget(),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const NotificationView()),
+        ),
+      ),
       leading: Image.asset(Assets.imagesProfileImage),
       title: Text(
         'صباح الخير !..',
