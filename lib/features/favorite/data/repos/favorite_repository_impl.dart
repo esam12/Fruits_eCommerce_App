@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fruits/core/errors/failures.dart';
 import 'package:fruits/core/services/data_service.dart';
 import 'package:fruits/core/services/firebase_auth_service.dart';
-import 'package:fruits/core/services/firestore_service.dart';
 import 'package:fruits/core/utils/backend_endpoint.dart';
 import 'package:fruits/features/favorite/domain/repos/favorite_repository.dart';
 
