@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/helper/functions/on_generate_routes.dart';
 import 'package:fruits/core/services/custom_bloc_observer.dart';
+import 'package:fruits/core/services/firebase_messaging_service.dart';
 import 'package:fruits/core/services/get_it_service.dart';
 import 'package:fruits/core/services/shared_preferences_singleton.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
@@ -16,12 +17,13 @@ void main() async {
   Bloc.observer = CustomBlocObserver();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await FirebaseMessagingService().init();
   await SharedPreferencesSingleton.init();
   setUpGetIt();
 
   runApp(const FruitHub());
 }
-
 
 class FruitHub extends StatelessWidget {
   const FruitHub({super.key});
