@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fruits/core/errors/exception.dart';
 import 'package:fruits/core/errors/failures.dart';
 import 'package:fruits/core/services/data_service.dart';
@@ -34,7 +35,7 @@ class AuthRepoImpl extends AuthRepo {
       var userEntity = UserEntity(name: name, email: email, uId: user.uid);
 
       await addUserData(user: userEntity);
-
+      await saveDeviceToken(user.uid);
       await saveUserData(user: userEntity);
 
       return right(userEntity);
@@ -61,6 +62,7 @@ class AuthRepoImpl extends AuthRepo {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
       var userEntity = await getUserData(uid: user.uid);
+      await saveDeviceToken(user.uid);
       await saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
@@ -85,8 +87,10 @@ class AuthRepoImpl extends AuthRepo {
 
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveDeviceToken(user.uid);
       } else {
         await addUserData(user: userEntity);
+        await saveDeviceToken(user.uid);
       }
 
       return right(userEntity);
@@ -145,5 +149,22 @@ class AuthRepoImpl extends AuthRepo {
   Future saveUserData({required UserEntity user}) async {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
     await SharedPreferencesSingleton.setString(kUserData, jsonData);
+  }
+
+  Future<void> saveDeviceToken(String userId) async {
+    try {
+      String? token = await FirebaseMessaging.instance.getToken();
+      if (token != null) {
+        await databaseService.updateData(
+          path: BackendEndpoint.addUserData,
+          documentId: userId,
+          data: {
+            'fcmToken': token,
+          },
+        );
+      }
+    } catch (e) {
+      log("Error saving FCM token: $e");
+    }
   }
 }
