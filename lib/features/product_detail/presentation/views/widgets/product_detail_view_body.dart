@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/entities/product_entity.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
-import 'package:fruits/core/widgets/cart/add_remove_to_cart.dart';
 import 'package:fruits/core/widgets/containers/circular_image.dart';
 import 'package:fruits/core/widgets/containers/image_rounded.dart';
 import 'package:fruits/core/widgets/containers/rounded_container.dart';
