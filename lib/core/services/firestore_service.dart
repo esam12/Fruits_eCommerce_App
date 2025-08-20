@@ -37,6 +37,14 @@ class FireStoreService implements DatabaseService {
           var limit = query['limit'];
           data = data.limit(limit);
         }
+
+        if (query['minPrice'] != null && query['maxPrice'] != null) {
+          data = data.where(
+            'price',
+            isGreaterThanOrEqualTo: query['minPrice'],
+            isLessThanOrEqualTo: query['maxPrice'],
+          );
+        }
       }
       var result = await data.get();
 
