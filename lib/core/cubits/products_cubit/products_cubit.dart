@@ -19,9 +19,12 @@ class ProductsCubit extends Cubit<ProductsState> {
         (products) => emit(ProductsSuccess(products: products)));
   }
 
-  Future<void> getProducts() async {
+  Future<void> getProducts({double? minPrice, double? maxPrice}) async {
     emit(ProductsLoading());
-    final result = await productRepo.fetchAllProducts();
+    final result = await productRepo.fetchAllProducts(
+      minPrice,
+      maxPrice,
+    );
 
     result.fold(
       (failure) => emit(ProductsFailure(message: failure.message.toString())),
