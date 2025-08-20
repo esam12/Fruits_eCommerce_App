@@ -4,13 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:fruits/core/utils/constants/app_colors.dart';
 import 'package:fruits/core/utils/constants/app_text_styles.dart';
 import 'package:fruits/core/widgets/appbar/custom_app_bar.dart';
-import 'package:fruits/core/widgets/layouts/grid_layout.dart';
-import 'package:fruits/core/widgets/product_cards/product_card_vertical.dart';
 import 'package:fruits/core/widgets/section_heading.dart';
 import 'package:fruits/core/widgets/vertical_image_and_text.dart';
-import 'package:fruits/core/models/product_model.dart';
 import 'package:fruits/features/home/presentation/views/widgets/primery_header_container.dart';
-import 'package:fruits/features/our_products/presentation/views/widgets/pricing_bottom_sheet.dart';
+import 'package:fruits/features/home/presentation/views/widgets/pricing_bottom_sheet.dart';
 
 class ProductsViewBody extends StatelessWidget {
   const ProductsViewBody({super.key});
@@ -49,9 +46,9 @@ class ProductsViewBody extends StatelessWidget {
                   onTap: () {
                     showBottomSheet(
                       enableDrag: true,
-                      sheetAnimationStyle: AnimationStyle(
+                      sheetAnimationStyle: const AnimationStyle(
                         curve: Curves.easeInQuint,
-                        duration: const Duration(seconds: 1),
+                        duration: Duration(seconds: 1),
                       ),
                       shape: const RoundedRectangleBorder(
                         side: BorderSide(
@@ -73,7 +70,7 @@ class ProductsViewBody extends StatelessWidget {
                                   ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                               child: Container(),
                             ),
-                            const PricingBarBottomSheet(),
+                            // const PricingBarBottomSheet(),
                           ],
                         ),
                       ),

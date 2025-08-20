@@ -47,9 +47,18 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                     const SizedBox(height: Sizes.md),
 
                     /// Best Seller
-                    ProductsViewHeader(
-                      productsLength:
-                          context.read<ProductsCubit>().productsLength,
+                    BlocSelector<ProductsCubit, ProductsState, int>(
+                      selector: (state) {
+                        if (state is ProductsSuccess) {
+                          return state.products.length;
+                        } else {
+                          return 0;
+                        }
+                      },
+                      builder: (context, productsLength) {
+                        return ProductsViewHeader(
+                            productsLength: productsLength);
+                      },
                     ),
 
                     const SizedBox(height: Sizes.md),
