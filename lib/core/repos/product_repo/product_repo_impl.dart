@@ -35,10 +35,18 @@ class ProductRepoImpl extends ProductRepo {
 
   /// Fetch All Products
   @override
-  Future<Either<Failure, List<ProductEntity>>> fetchAllProducts() async {
+  Future<Either<Failure, List<ProductEntity>>> fetchAllProducts(
+    double? minPrice,
+    double? maxPrice,
+  ) async {
     try {
       var data = await fireStoreService.getData(
-          path: BackendEndpoint.getProducts) as List<Map<String, dynamic>>;
+        path: BackendEndpoint.getProducts,
+        query: {
+          if (minPrice != null) 'minPrice': minPrice,
+          if (maxPrice != null) 'maxPrice': maxPrice,
+        },
+      ) as List<Map<String, dynamic>>;
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
       return right(products);
